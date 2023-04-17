@@ -5,6 +5,8 @@ const commands = [
   {
     name: "hey",
     description: "Replies with hey",
+    name: "goodbye",
+    description: "Replies with goodbye",
   },
 ];
 
