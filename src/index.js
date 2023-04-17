@@ -1,5 +1,5 @@
 require("dotenv").config();
-const { Client, IntentsBitField } = require("discord.js");
+const { Client, IntentsBitField, InteractionCollector } = require("discord.js");
 
 const client = new Client({
   intents: [
@@ -21,6 +21,11 @@ client.on("messageCreate", (message) => {
   if (message.content === "hello") {
     message.reply("Howdy!");
   }
+});
+
+client.on("interactionCreate", (interaction) => {
+  if (interaction.isChatInputCommand()) return;
+  console.log(interaction);
 });
 
 client.login(process.env.TOKEN);
