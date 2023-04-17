@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/jmelchiade/tutorial_bot#readme",
   "dependencies": {
-    "discord.js": "^14.9.0"
+    "discord.js": "^14.9.0",
+    "dotenv": "^16.0.3"
   }
 }

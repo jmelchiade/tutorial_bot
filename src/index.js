@@ -1,13 +1,26 @@
+require("dotenv").config();
 const { Client, IntentsBitField } = require("discord.js");
 
 const client = new Client({
   intents: [
     IntentsBitField.Flags.Guilds,
     IntentsBitField.Flags.GuildMembers,
+    IntentsBitField.Flags.GuildMessages,
     IntentsBitField.Flags.MessageContent,
   ],
 });
 
-client.login(
-  "MTA5NzU5MzY1MjQ4NzkxMzU2Mw.GbltWp.K54a3OO_s5cFGlTTGibXykii_AoEqHtrfXy29s"
-);
+client.on("ready", (c) => {
+  console.log(`🦤 ${c.user.tag} is dodoing`);
+});
+
+client.on("messageCreate", (message) => {
+  if (message.author.bot) {
+    return;
+  }
+  if (message.content === "hello") {
+    message.reply("Howdy!");
+  }
+});
+
+client.login(process.env.TOKEN);
